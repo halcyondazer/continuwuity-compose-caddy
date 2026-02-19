@@ -1,5 +1,4 @@
 yourdomain.tld {
-  encode
   reverse_proxy homeserver:6167
 }
 livekit.yourdomain.tld {
