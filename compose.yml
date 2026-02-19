@@ -1,0 +1,50 @@
+services:
+  caddy:
+    image: caddy:alpine
+    restart: unless-stopped
+    hostname: caddy
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/data:/data
+      - ./caddy/config:/config
+      - ./caddy/static:/static:ro
+  
+  homeserver:
+    image: forgejo.ellis.link/continuwuation/continuwuity:latest-maxperf
+    restart: unless-stopped
+    volumes:
+      - ./database:/var/lib/continuwuity
+      - /etc/resolv.conf:/etc/resolv.conf:ro
+      - ./continuwuity.toml:/etc/continuwuity.toml
+    environment:
+      CONTINUWUITY_CONFIG: '/etc/continuwuity.toml'
+    ulimits:
+      nofile:
+        soft: 1048567
+        hard: 1048567
+
+  jwt:
+    image: ghcr.io/element-hq/lk-jwt-service:latest
+    env_file: ./jwt.env
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+
+  livekit:
+    image: livekit/livekit-server:latest
+    command: --config /etc/livekit.yaml
+    restart: unless-stopped
+    volumes:
+      - ./livekit.yaml:/etc/livekit.yaml:ro
+    ports:
+      - "127.0.0.1:7880:7880/tcp"
+      - "7881:7881/tcp"
+      - "50100-50200:50100-50200/udp"
+
+volumes:
+    db:
+    acme:
