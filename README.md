@@ -1,3 +1,9 @@
+# Below config is not done yet!
+# parts based on https://github.com/linkpy/c10y-livekit-docker-compose
+# Thank you Kaesa, probably would still guess without your help
+---
+---
+
 # Continuwuity Docker Compose Setup
 
 This repository contains what you need to get a Continuwuity homeserver up and running.
