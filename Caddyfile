@@ -1,25 +1,11 @@
 yourdomain.tld {
-  handle_path /.well-known/matrix/* {
-    header * {
-      Access-Control-Allow-Origin "*"
-      Access-Control-Allow-Methods "GET, POST, OPTIONS"
-      Access-Control-Allow-Headers "Authorization"
-      Content-Type "application/json"
-    }
-
-    root * /static/well-known/matrix
-    file_server
-  }
-
-	encode
-	reverse_proxy homeserver:6167
+  encode
+  reverse_proxy homeserver:6167
 }
-
 livekit.yourdomain.tld {
   @jwt path /sfu/get* /healthz* /get_token*
     route @jwt {
       reverse_proxy jwt:8081
     }
-
     reverse_proxy livekit:7880
 }
