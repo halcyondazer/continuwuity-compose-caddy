@@ -1,5 +1,6 @@
 services:
   caddy:
+    platform: "linux"
     image: caddy:alpine
     restart: unless-stopped
     hostname: caddy
@@ -14,6 +15,7 @@ services:
       - ./caddy/static:/static:ro
   
   homeserver:
+    platform: "linux"
     image: forgejo.ellis.link/continuwuation/continuwuity:latest-maxperf
     restart: unless-stopped
     volumes:
@@ -28,6 +30,7 @@ services:
         hard: 1048567
 
   jwt:
+    platform: "linux"
     image: ghcr.io/element-hq/lk-jwt-service:latest
     env_file: ./jwt.env
     restart: unless-stopped
@@ -35,6 +38,7 @@ services:
       - "8081:8081"
 
   livekit:
+    platform: "linux"
     image: livekit/livekit-server:latest
     command: --config /etc/livekit.yaml
     restart: unless-stopped
