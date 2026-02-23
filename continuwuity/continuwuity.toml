@@ -125,7 +125,7 @@ allow_registration = true
 #
 # example: "o&^uCtes4HPf0Vu@F20jQeeWE7"
 #
-registration_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+registration_token = "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
 
 # Servers listed here will be used to gather public keys of other servers
 # (notary trusted key servers).
@@ -169,7 +169,7 @@ server = "yourdomain.tld:443"
 # MSC1929 server support endpoint.
 # This will be used along with support_mxid if specified.
 #
-support_email = "yourmail@mailhost.tld"
+#support_email = "yourmail@mailhost.tld"
 
 # Matrix ID for server support contacts, to be served as part of the
 # MSC1929 server support endpoint.
@@ -178,7 +178,7 @@ support_email = "yourmail@mailhost.tld"
 # If no email or mxid is specified, all of the server's admins will be
 # listed.
 #
-support_mxid = "@admin_or_supportuser:yourdomain.tld"
+#support_mxid = "@admin_or_supportuser:yourdomain.tld"
 
 # A list of MatrixRTC foci URLs which will be served as part of the
 # MSC4143 client endpoint at /.well-known/matrix/client.  If you're
