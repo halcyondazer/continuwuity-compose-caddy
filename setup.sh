@@ -25,4 +25,8 @@ if [[ $confirmation = "yes" ]]; then
    echo "starting the server using docker compose..."
    cd $STAMP
    docker compose up -d
+   docker compose logs | grep 'using the registration token'
+   echo "The registration token you set in your configuration will not function until you create an account using the token above."
+   echo "The registration token after that is: "
+   grep 'registration_token = "' continuwuity.toml
 fi
