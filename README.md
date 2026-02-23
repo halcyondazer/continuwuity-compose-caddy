@@ -1,5 +1,5 @@
 
-# Script is done, its generated configs has beenbtested and work. documantation soon™
+# Script is done, its generated configs has been tested and work. documantation soon™
 
 
 parts and ideas based on https://github.com/linkpy/c10y-livekit-docker-compose
